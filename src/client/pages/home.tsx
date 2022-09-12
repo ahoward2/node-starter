@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import HomeLayout from "../layouts/HomeLayout/HomeLayout";
 import Header from "../components/Header/Header";
-import { Message } from "../components/Message/Message";
 import { Toaster } from "react-hot-toast";
 import { handleShowToast } from "../components/Toast/Events";
+import { download } from "../lib/Download";
 
 const Home = () => {
   useEffect(() => {
@@ -31,12 +31,19 @@ const Home = () => {
               </h1>
             </div>
             <div className="mx-auto w-full px-4 md:w-1/2 md:pt-10">
-              <Message
-                title={"Message title"}
-                content={
-                  "Here will be some forms and buttons to start new Node.js projects."
+              <button
+                type="submit"
+                className="w-full rounded border-2 border-indigo-700 bg-indigo-700 px-4 py-2 text-white dark:border-rose-300 dark:bg-rose-300 dark:text-black  md:mt-0 md:ml-2 md:self-end"
+                onClick={async () =>
+                  await download({
+                    owner: "ahoward2",
+                    repo: "remind",
+                    ref: "master",
+                  })
                 }
-              ></Message>
+              >
+                Search
+              </button>
             </div>
             <Toaster position="bottom-center" />
           </div>

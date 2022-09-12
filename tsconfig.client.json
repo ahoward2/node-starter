@@ -10,7 +10,7 @@
     "sourceMap": true,
     "allowJs": true,
     "outDir": "dist/client",
-    "lib": ["es7"]
+    "lib": ["es7", "dom"]
   },
   "include": ["src/client", "src/shared"],
   "exclude": ["src/server", "node_modules", "**/*.spec.ts"]
