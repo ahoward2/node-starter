@@ -10,8 +10,8 @@ async function bootstrap() {
   await app.listen(8080, "0.0.0.0");
 
   // Gracefully shutdown the server.
-  process.on("SIGTERM", () => {
-    console.info("SIGTERM signal received.");
+  process.on("SIGINT", () => {
+    console.info("SIGINT signal received.");
     console.log("Closing server.");
     app.close();
   });
