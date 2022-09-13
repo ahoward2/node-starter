@@ -1,16 +1,9 @@
-import axios from "axios";
-
-export const download = async ({
-  owner,
-  repo,
-  ref,
+export const downloadPath = ({
+  path,
+  name,
 }: {
-  owner: string;
-  repo: string;
-  ref: string;
+  path: string;
+  name: string;
 }) => {
-  return await axios
-    .get(`https://api.github.com/repos/${owner}/${repo}/zipball/${ref}`)
-    .then(() => console.log("Finished downloading"))
-    .catch((e) => console.error(e));
+  return `/api/app-getter?path=${path}&name=${name}`;
 };
